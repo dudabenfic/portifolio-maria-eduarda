@@ -1,0 +1,661 @@
+:root {
+    --bg-principal: #171a21;
+    --bg-header: #080d18;
+    --bg-nav: #1d2433;
+    --bg-section: #222731;
+    --bg-card: #2b303b;
+
+    --texto-principal: #e8e8ec;
+    --texto-secundario: #b9bec9;
+    --texto-terciario: #aeb3bd;
+
+    --borda: #343a47;
+    --borda-nav: #343c50;
+
+    --destaque: #5b6cff;
+    --destaque-claro: #8b94ff;
+    --destaque-hover: #9da5ff;
+}
+
+.app.light {
+    --bg-principal: #f3f4f7;
+    --bg-header: #ffffff;
+    --bg-nav: #ffffff;
+    --bg-section: #ffffff;
+    --bg-card: #f6f7fa;
+
+    --texto-principal: #171a21;
+    --texto-secundario: #4d5360;
+    --texto-terciario: #626876;
+
+    --borda: #d9dce4;
+    --borda-nav: #e1e3e8;
+
+    --destaque: #4d5be3;
+    --destaque-claro: #6875ed;
+    --destaque-hover: #3948cf;
+}
+
+.app {
+    min-height: 100vh;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #171a21;
+    color: #e8e8ec;
+    line-height: 1.6;
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+.pular-conteudo {
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    z-index: 2;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #080d18;
+}
+
+.pular-conteudo:focus {
+    top: 15px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background-color: var(--bg-header);
+    color: var(--texto-principal);
+    padding: 55px 70px 70px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 4px solid var(--destaque);
+    transition: background-color 0.3s ease;
+}
+
+header img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--destaque-claro);
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: 44px;
+    letter-spacing: 1px;
+    color: var(--texto-principal);
+}
+
+header h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin-top: 18px;
+    border-radius: 4px;
+    background-color: var(--destaque-claro);
+}
+
+header p {
+    margin: 8px 0;
+    font-size: 17px;
+    color: var(--texto-secundario);
+}
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+nav {
+    background-color: var(--bg-nav);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid var(--borda-nav);
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+nav a {
+    padding: 4px 0;
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--destaque-hover);
+    border-bottom-color: var(--destaque);
+    text-decoration: none;
+}
+
+/* =========================
+   BOTÃO DE TEMA
+========================= */
+
+.theme-button {
+    border: 1px solid var(--borda);
+    background-color: var(--bg-card);
+    color: var(--texto-principal);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.theme-button:hover {
+    transform: scale(1.08);
+    border-color: var(--destaque);
+}
+
+.theme-button:focus-visible {
+    outline: 3px solid var(--destaque-claro);
+    outline-offset: 3px;
+}
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+
+main {
+    width: 88%;
+    max-width: 1050px;
+    margin: 50px auto;
+}
+
+section {
+    background-color: var(--bg-section);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--borda);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+    animation: aparecer 0.55s ease both;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+section:hover {
+    border-color: var(--destaque-claro);
+}
+
+section h2 {
+    color: var(--texto-principal);
+    font-size: 26px;
+    padding-bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--destaque);
+}
+
+/* =========================
+   EXPERIÊNCIA / ARTIGOS
+========================= */
+
+article {
+    margin-bottom: 25px;
+    padding: 15px 0 25px 25px;
+    border-left: 3px solid var(--destaque-claro);
+    background-color: var(--bg-card);
+    border-radius: 5px;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.3s ease;
+}
+
+article:hover {
+    transform: translateX(5px);
+    background-color: var(--bg-card);
+}
+
+article h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--texto-principal);
+    font-size: 21px;
+}
+
+article p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+/* =========================
+   FORMAÇÃO
+========================= */
+
+.formacoes {
+    display: flex;
+    gap: 50px;
+    padding: 0;
+}
+
+.formacoes .formacao {
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    border-top: 3px solid var(--destaque-claro);
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.formacoes .formacao:hover {
+    transform: translateY(-3px);
+}
+
+.formacao h3 {
+    font-size: 20px;
+    color: var(--texto-principal);
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.formacao p {
+    font-size: 16px;
+    color: var(--texto-secundario);
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+/* =========================
+   HABILIDADES
+========================= */
+
+.habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.habilidade-card {
+    margin: 0;
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--destaque);
+
+    border-radius: 10px;
+    background-color: var(--bg-card);
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.3s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.habilidade-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--destaque-claro);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.habilidade-icone {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    background-color: var(--bg-section);
+    border: 1px solid var(--borda);
+
+    font-size: 25px;
+}
+
+.habilidade-card h3 {
+    margin: 0 0 8px 0;
+    color: var(--texto-principal);
+    font-size: 20px;
+}
+
+.habilidade-card p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: var(--destaque-hover);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--texto-principal);
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--destaque-claro);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+/* =========================
+   PUBLICAÇÕES
+========================= */
+
+#publicacoes article {
+    background-color: var(--bg-card);
+    border-left: 3px solid var(--destaque);
+    padding: 20px 25px;
+    margin-bottom: 20px;
+}
+
+#publicacoes article h3 {
+    color: var(--texto-principal);
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#publicacoes article p {
+    color: var(--texto-secundario);
+    font-size: 16px;
+    margin: 0;
+}
+
+#publicacoes article:hover {
+    background-color: var(--bg-card);
+}
+
+/* =========================
+   FORMULÁRIO DE CONTATO
+========================= */
+
+#contato-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-formulario label {
+    color: var(--texto-principal);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+
+    background-color: var(--bg-card);
+    color: var(--texto-principal);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.3s ease;
+}
+
+.campo-formulario input::placeholder,
+.campo-formulario textarea::placeholder {
+    color: var(--texto-terciario);
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+    outline: none;
+    border-color: var(--destaque);
+    box-shadow: 0 0 0 3px rgba(91, 108, 255, 0.15);
+}
+
+.campo-formulario textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.botao-enviar {
+    align-self: flex-start;
+
+    padding: 12px 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--destaque);
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.botao-enviar:hover {
+    background-color: var(--destaque-hover);
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.botao-enviar:focus-visible {
+    outline: 3px solid var(--destaque-claro);
+    outline-offset: 3px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: var(--bg-header);
+    color: var(--texto-terciario);
+    padding: 40px 70px;
+    text-align: center;
+    border-top: 4px solid var(--destaque);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+footer a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.voltar-topo {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+footer h3 {
+    margin-top: 0;
+    color: var(--texto-principal);
+    font-size: 21px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        padding: 14px 20px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 25px;
+        padding: 45px 25px 50px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header h1::after {
+        margin: 18px auto 0;
+    }
+
+    header img {
+        width: 145px;
+        height: 145px;
+    }
+
+    main {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    section {
+        padding: 24px;
+    }
+
+    .formacoes {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .formacoes .formacao {
+        width: 100%;
+    }
+
+    .habilidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #contato-form form {
+        gap: 18px;
+    }
+
+    .botao-enviar {
+        width: 100%;
+    }
+
+    footer {
+        padding: 35px 25px;
+    }
+}
+
+/* =========================
+   REDUÇÃO DE MOVIMENTO
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
