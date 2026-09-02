@@ -81,12 +81,6 @@ function App() {
             }
         >
 
-            <a
-                className="pular-conteudo"
-                href="#conteudo"
-            >
-                Pular para o conteúdo
-            </a>
 
 
             <Header
